@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(EduAssist main.cpp
         include/Scholarship.h
-        src/Scholarship.cpp)
+        src/Scholarship.cpp
+        include/Studyplanner.h
+        src/Studyplanner.cpp)
