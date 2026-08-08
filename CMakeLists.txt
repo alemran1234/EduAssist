@@ -7,4 +7,6 @@ add_executable(EduAssist main.cpp
         include/Scholarship.h
         src/Scholarship.cpp
         include/Studyplanner.h
-        src/Studyplanner.cpp)
+        src/Studyplanner.cpp
+        include/ExpensesTracker.h
+        src/ExpensesTracker.cpp)
