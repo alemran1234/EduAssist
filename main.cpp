@@ -1,6 +1,7 @@
 #include "include/Scholarship.h"
 #include "include/StudyPlanner.h"
 #include "include/ExpensesTracker.h"
+#include "include/ResourceManager.h"
 
 using namespace std;
 
@@ -9,6 +10,7 @@ int main() {
     Scholarship s;
     StudyPlanner p;
     ExpenseTracker e;
+    ResourceManager r;
 
     int choice;
 
@@ -18,6 +20,7 @@ int main() {
         cout << "1. Scholarship\n";
         cout << "2. Study Planner\n";
         cout << "3. Expense Tracker\n";
+        cout << "4. Resource Manager\n";
         cout << "0. Exit\n";
 
         cout << "Enter your choice: ";
@@ -159,6 +162,32 @@ int main() {
 
                 } while (expenseChoice != 0);
 
+                break;
+            }
+           case 4: {
+                int resourcechoice;
+                do {
+                    cout << "\n===== Resource Tracker =====\n";
+                    cout << "1. Add Resource\n";
+                    cout << "2. View Resource\n";
+                    cout << "0. Back\n";
+                    cout << "Enter your choice: ";
+                    cin >> resourcechoice;
+                    switch (resourcechoice) {
+                        case 1:
+                            r.addResource();
+                            break;
+                            case 2:
+                            r.viewResource();
+                            break;
+                        case 0:
+                            cout << "\nGoing back...\n";
+                            break;
+                            default:
+                            cout << "\nInvalid choice!\n";
+                    }
+                }
+                while (resourcechoice != 0);
                 break;
             }
 
