@@ -3,7 +3,7 @@
 
 
 
-#include "../include/student.h"
+#include "../include/Student.h"
 #include <iostream>
 Student::Student()
 {
