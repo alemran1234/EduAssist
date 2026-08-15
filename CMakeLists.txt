@@ -13,3 +13,5 @@ add_executable(EduAssist main.cpp
         include/ResourceManager.h
         src/ResourceManager.cpp
 )
+)
+target_include_directories(EduAssist PRIVATE include)
