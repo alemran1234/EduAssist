@@ -28,11 +28,9 @@ int main() {
 
         switch (choice) {
 
-            // =========================
-            // Scholarship
-            // =========================
-            case 1: {
 
+
+            case 1: {
                 int scholarshipChoice;
 
                 do {
@@ -74,9 +72,7 @@ int main() {
             }
 
 
-            // =========================
-            // Study Planner
-            // =========================
+
             case 2: {
 
                 int plannerChoice;
@@ -120,9 +116,7 @@ int main() {
             }
 
 
-            // =========================
-            // Expense Tracker
-            // =========================
+
             case 3: {
 
                 int expenseChoice;
@@ -192,9 +186,7 @@ int main() {
             }
 
 
-            // =========================
-            // Exit
-            // =========================
+
             case 0:
                 cout << "\nExiting EduAssist...\n";
                 break;

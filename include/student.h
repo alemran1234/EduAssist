@@ -1,8 +1,0 @@
-//
-// Created by AL EMRAN on 8/12/2026.
-//
-
-#ifndef EDUASSIST_STUDENT_H
-#define EDUASSIST_STUDENT_H
-
-#endif //EDUASSIST_STUDENT_H

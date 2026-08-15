@@ -12,5 +12,4 @@ add_executable(EduAssist main.cpp
         src/ExpensesTracker.cpp
         include/ResourceManager.h
         src/ResourceManager.cpp
-        include/student.h
-        src/student.cpp)
+)
