@@ -42,11 +42,60 @@ void StudyPlanner::viewTasks() {
 }
 
 void StudyPlanner::completeTasks() {
-    cout<<"\nComplete Tasks!"<<endl;
+
     string task;
     cin.ignore();
-    cout<<"Enter Task Name: ";
-    getline(cin,task);
-    cout<<"\nTask\""<<task<<"\" task mark as completed!"<<endl;
-    cout<<"Update features will be added in the next version.\n";
+
+    cout << "\nEnter Task Name: ";
+    getline(cin, task);
+
+    ifstream file("StudyPlanner.txt");
+
+    if (!file.is_open()) {
+        cout << "\nNo task file found!\n";
+        return;
+    }
+
+    ofstream temp("temp.txt");
+
+    string name;
+    string taskDate;
+    string taskStatus;
+    string separator;
+
+    bool found = false;
+
+    while (getline(file, name)) {
+
+        if (!getline(file, taskDate))
+            break;
+
+        if (!getline(file, taskStatus))
+            break;
+
+        getline(file, separator);
+
+        if (name == task) {
+            taskStatus = "completed";
+            found = true;
+        }
+
+        temp << name << endl;
+        temp << taskDate << endl;
+        temp << taskStatus << endl;
+        temp << "--------------" << endl;
+    }
+
+    file.close();
+    temp.close();
+
+    remove("StudyPlanner.txt");
+    rename("temp.txt", "StudyPlanner.txt");
+
+    if (found) {
+        cout << "\nTask \"" << task << "\" marked as completed!\n";
+    }
+    else {
+        cout << "\nTask not found!\n";
+    }
 }

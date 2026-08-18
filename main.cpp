@@ -1,26 +1,36 @@
+#include "include/Student.h"
 #include "include/Scholarship.h"
 #include "include/StudyPlanner.h"
 #include "include/ExpensesTracker.h"
 #include "include/ResourceManager.h"
+#include "include/ProgressTracker.h"
+#include<limits>
+#include "include/Report.h"
 
 using namespace std;
 
 int main() {
 
+    Student st;
     Scholarship s;
     StudyPlanner p;
     ExpenseTracker e;
     ResourceManager r;
+    ProgressTracker pt;
+    Report report;
 
     int choice;
 
     do {
 
         cout << "\n===== EduAssist =====\n";
-        cout << "1. Scholarship\n";
-        cout << "2. Study Planner\n";
-        cout << "3. Expense Tracker\n";
-        cout << "4. Resource Manager\n";
+        cout << "1. Student\n";
+        cout << "2. Scholarship\n";
+        cout << "3. Study Planner\n";
+        cout << "4. Expense Tracker\n";
+        cout << "5. Resource Manager\n";
+        cout << "6. Progress Tracker\n";
+        cout << "7. Report\n";
         cout << "0. Exit\n";
 
         cout << "Enter your choice: ";
@@ -28,13 +38,58 @@ int main() {
 
         switch (choice) {
 
-
-
+            // ================= STUDENT =================
             case 1: {
+                int studentChoice;
+
+                do {
+                    cout << "\n===== Student =====\n";
+                    cout << "1. Register Student\n";
+                    cout << "2. Login\n";
+                    cout << "3. View Profile\n";
+                    cout << "4. Edit Profile\n";
+                    cout << "0. Back\n";
+
+                    cout << "Enter your choice: ";
+                    cin >> studentChoice;
+
+                    switch (studentChoice) {
+
+                        case 1:
+                            st.registerStudent();
+                            break;
+
+                        case 2:
+                            st.login();
+                            break;
+
+                        case 3:
+                            st.viewProfile();
+                            break;
+
+                        case 4:
+                            st.editProfile();
+                            break;
+
+                        case 0:
+                            cout << "\nGoing back...\n";
+                            break;
+
+                        default:
+                            cout << "\nInvalid choice!\n";
+                    }
+
+                } while (studentChoice != 0);
+
+                break;
+            }
+
+
+            // ================= SCHOLARSHIP =================
+            case 2: {
                 int scholarshipChoice;
 
                 do {
-
                     cout << "\n===== Scholarship =====\n";
                     cout << "1. Add Scholarship\n";
                     cout << "2. View Scholarship\n";
@@ -72,13 +127,11 @@ int main() {
             }
 
 
-
-            case 2: {
-
+            // ================= STUDY PLANNER =================
+            case 3: {
                 int plannerChoice;
 
                 do {
-
                     cout << "\n===== Study Planner =====\n";
                     cout << "1. Add Task\n";
                     cout << "2. View Task\n";
@@ -116,13 +169,11 @@ int main() {
             }
 
 
-
-            case 3: {
-
+            // ================= EXPENSE TRACKER =================
+            case 4: {
                 int expenseChoice;
 
                 do {
-
                     cout << "\n===== Expense Tracker =====\n";
                     cout << "1. Add Expense\n";
                     cout << "2. View Expense\n";
@@ -158,38 +209,121 @@ int main() {
 
                 break;
             }
-           case 4: {
-                int resourcechoice;
+
+
+            // ================= RESOURCE MANAGER =================
+            case 5: {
+                int resourceChoice;
+
                 do {
-                    cout << "\n===== Resource Tracker =====\n";
+                    cout << "\n===== Resource Manager =====\n";
                     cout << "1. Add Resource\n";
                     cout << "2. View Resource\n";
                     cout << "0. Back\n";
+
                     cout << "Enter your choice: ";
-                    cin >> resourcechoice;
-                    switch (resourcechoice) {
+                    cin >> resourceChoice;
+
+                    switch (resourceChoice) {
+
                         case 1:
                             r.addResource();
                             break;
-                            case 2:
+
+                        case 2:
                             r.viewResource();
                             break;
+
                         case 0:
                             cout << "\nGoing back...\n";
                             break;
-                            default:
+
+                        default:
                             cout << "\nInvalid choice!\n";
                     }
-                }
-                while (resourcechoice != 0);
+
+                } while (resourceChoice != 0);
+
                 break;
             }
 
 
+            // ================= PROGRESS TRACKER =================
+            case 6: {
+                int progressChoice;
 
+                do {
+                    cout << "\n===== Progress Tracker =====\n";
+                    cout << "1. Update Progress\n";
+                    cout << "2. Show Progress\n";
+                    cout << "0. Back\n";
+
+                    cout << "Enter your choice: ";
+                    cin >> progressChoice;
+
+                    switch (progressChoice) {
+
+                        case 1:
+                            pt.updateprogress();
+                            break;
+
+                        case 2:
+                            pt.showprogress();
+                            break;
+
+                        case 0:
+                            cout << "\nGoing back...\n";
+                            break;
+
+                        default:
+                            cout << "\nInvalid choice!\n";
+                    }
+
+                } while (progressChoice != 0);
+
+                break;
+            }
+
+
+            // ================= REPORT =================
+            case 7:
+            {
+                Report report;
+
+                string name;
+                string id;
+                double cgpa;
+                int courses;
+
+                cout << "\n===== Student Report =====\n";
+
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+                cout << "Enter Student Name: ";
+                getline(cin, name);
+
+                cout << "Enter Student ID: ";
+                getline(cin, id);
+
+                cout << "Enter CGPA: ";
+                cin >> cgpa;
+
+                cout << "Enter Completed Courses: ";
+                cin >> courses;
+
+                report.setStudentInfo(name, id, cgpa, courses);
+
+                report.generateFunction();
+
+                break;
+            }
+
+
+            // ================= EXIT =================
             case 0:
                 cout << "\nExiting EduAssist...\n";
                 break;
+
 
             default:
                 cout << "\nInvalid choice!\n";

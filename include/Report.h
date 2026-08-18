@@ -13,16 +13,11 @@ private:
     int completedCourses;
 
 public:
-    // Constructor
     Report();
 
-    // Set student information
     void setStudentInfo(string name, string id, double cgpa, int courses);
 
-    // Generate report
     void generateFunction();
 };
 
 #endif
-
-

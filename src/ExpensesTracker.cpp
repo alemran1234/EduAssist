@@ -3,24 +3,30 @@
 //
 #include"../include/ExpensesTracker.h"
 void ExpenseTracker::addExpense() {
-    cout<<"Enter Expense Category: ";
+    cout << "Enter Expense Category: ";
     cin.ignore();
-    getline(cin,category);
-    cout<<"Enter Amount: ";
-    cin>>amount;
-    cin.ignore();
-    cout<<"Enter date: ";
-    getline(cin,date);
-    ofstream file("expenses.txt",ios::app);
-    if (file.is_open()) {
-      file<<category<<" "<<amount<<" "<<date<<endl;
-        file<<"------------"<<endl;
+    getline(cin, category);
 
-      file.close();
-        cout<<"\n Expense Added Successfully!\n";
+    cout << "Enter Amount: ";
+    cin >> amount;
+    cin.ignore();
+
+    cout << "Enter date: ";
+    getline(cin, date);
+
+    ofstream file("expenses.txt", ios::app);
+
+    if (file.is_open()) {
+        file << category << endl;
+        file << amount << endl;
+        file << date << endl;
+        file << "------------" << endl;
+
+        file.close();
+        cout << "\nExpense Added Successfully!\n";
     }
     else {
-        cout<<"Expenses can not be added!\n ";
+        cout << "Expenses cannot be added!\n";
     }
 }
 
@@ -40,49 +46,58 @@ void ExpenseTracker::viewExpense() {
 }
 
 void ExpenseTracker::searchExpense() {
+
     string searchCategory;
-    string line;
 
     cout << "Enter Category to Search: ";
     cin.ignore();
     getline(cin, searchCategory);
 
-    ifstream file("expense.txt");
+    ifstream file("expenses.txt");
 
-    if (file.is_open()) {
-
-        bool found = false;
-
-        while (getline(file, line)) {
-
-            if (line == searchCategory) {
-
-                found = true;
-
-                cout << "\n===== Expense Found =====\n";
-                cout << "Category: " << line << endl;
-
-                if (getline(file, line)) {
-                    cout << "Amount: " << line << endl;
-                }
-
-                if (getline(file, line)) {
-                    cout << "Date: " << line << endl;
-                }
-
-                if (getline(file, line)) {
-                    cout << line << endl;
-                }
-            }
-        }
-
-        if (!found) {
-            cout << "\nExpense not found!\n";
-        }
-
-        file.close();
-    }
-    else {
+    if (!file.is_open()) {
         cout << "\nFile could not be opened!\n";
+        return;
     }
+
+    string categoryLine;
+    string amountLine;
+    string dateLine;
+    string separator;
+
+    bool found = false;
+
+    while (getline(file, categoryLine)) {
+
+        // Skip separator or empty lines
+        if (categoryLine.empty() || categoryLine == "------------") {
+            continue;
+        }
+
+        // Read amount, date and separator
+        if (!getline(file, amountLine))
+            break;
+
+        if (!getline(file, dateLine))
+            break;
+
+        getline(file, separator);
+
+        if (categoryLine == searchCategory) {
+
+            cout << "\n===== Expense Found =====\n";
+            cout << "Category: " << categoryLine << endl;
+            cout << "Amount: " << amountLine << endl;
+            cout << "Date: " << dateLine << endl;
+
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "\nExpense not found!\n";
+    }
+
+    file.close();
 }

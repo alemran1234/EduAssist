@@ -1,6 +1,6 @@
 //
 // Created by AL EMRAN on 7/14/2026.
-//
+
 #include"../include/Scholarship.h"
 #include<fstream>
 
@@ -56,7 +56,7 @@ void Scholarship::searchScholarship() {
     }
     string searchName;
     cout<<"Enter scholarship name:";
-
+    cin.ignore();
     getline(cin,searchName);
     string name,country,deadline;
     double cgpa;
