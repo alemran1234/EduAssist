@@ -62,7 +62,7 @@ EduAssist is a C++ console-based student assistance system designed to help stud
 
 ## Project Structure
 
-
+```text
 EduAssist/
 │
 ├── include/
@@ -86,20 +86,28 @@ EduAssist/
 ├── main.cpp
 ├── CMakeLists.txt
 └── README.md
-## How To Run
+```
+## How to Run
+
 ### Using CLion
-1.Clone or download the repository.
-2.Open the project in CLion.
-3.Make sure CMake is configured correctly.
-4.Build the project.
-5.Run the EduAssist executable.
-##Using Terminal
+
+1. Clone or download the repository.
+2. Open the project in CLion.
+3. Make sure CMake is configured correctly.
+4. Build the project.
+5. Run the `EduAssist` executable.
+
+### Using Terminal
+
+```bash
 mkdir build
 cd build
 cmake ..
 cmake --build .
+```
 Then run the generated executable.
 ## Main Menu
+```text
 ===== EduAssist =====
 
 1. Student
@@ -110,6 +118,7 @@ Then run the generated executable.
 6. Progress Tracker
 7. Report
 0. Exit
+```
 ## File Handling
 EduAssist uses text files to store data locally.
 ## Team Project
