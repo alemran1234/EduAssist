@@ -1,3 +1,5 @@
+
+#include<windows.h>
 #include "include/Student.h"
 #include "include/Scholarship.h"
 #include "include/StudyPlanner.h"
@@ -8,6 +10,13 @@
 #include "include/Report.h"
 
 using namespace std;
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+#include <thread>
+#include <chrono>
+
+
 
 int main() {
 
@@ -22,34 +31,67 @@ int main() {
     int choice;
 
     do {
+        setColor(13);
+        cout << "\n";
+        cout<<"*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=\n";
+        cout<<"            EDUASSIST         \n";
+        cout<<"----------------------------------\n";
+        cout<<"     Student Assistant System \n";
+        cout<<"*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=\n";
+        cout<<"    "<<endl;
+        setColor(11);
+        cout<<"===============================\n";
+        cout<<"         Main Menu\n";
+        cout<<"===============================\n";
 
-        cout << "\n===== EduAssist =====\n";
-        cout << "1. Student\n";
-        cout << "2. Scholarship\n";
-        cout << "3. Study Planner\n";
-        cout << "4. Expense Tracker\n";
-        cout << "5. Resource Manager\n";
-        cout << "6. Progress Tracker\n";
-        cout << "7. Report\n";
-        cout << "0. Exit\n";
 
-        cout << "Enter your choice: ";
+
+
+        setColor(7);
+        cout << "                                      \n";
+        cout << "   1.  Student                        \n";
+        cout << "   2.  Scholarship                    \n";
+        cout << "   3.  Study Planner                  \n";
+        cout << "   4.  Expense Tracker                \n";
+        cout << "   5.  Resource Manager               \n";
+        cout << "   6.  Progress Tracker               \n";
+        cout << "   7.  Report                         \n";
+        cout << "                                      \n";
+
+        setColor(10);
+        cout << "   0.  Exit                           \n";
+        setColor(11);
+
+
+        setColor(14);
+        cout << "\nEnter your choice: ";
+
+        setColor(7);
         cin >> choice;
 
         switch (choice) {
 
             // ================= STUDENT =================
             case 1: {
+
                 int studentChoice;
 
-                do {
-                    cout << "\n===== Student =====\n";
+                do  {
+
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "      Student Module\n";
+                    cout<<"===============================\n";
+
+                    setColor(15);
                     cout << "1. Register Student\n";
                     cout << "2. Login\n";
                     cout << "3. View Profile\n";
                     cout << "4. Edit Profile\n";
+                    setColor(10);
                     cout << "0. Back\n";
 
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> studentChoice;
 
@@ -90,12 +132,18 @@ int main() {
                 int scholarshipChoice;
 
                 do {
-                    cout << "\n===== Scholarship =====\n";
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "     Scholarship Module\n";
+                    cout<<"===============================\n";
+                    setColor(15);
                     cout << "1. Add Scholarship\n";
                     cout << "2. View Scholarship\n";
                     cout << "3. Search Scholarship\n";
+                    setColor(10);
                     cout << "0. Back\n";
 
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> scholarshipChoice;
 
@@ -132,12 +180,17 @@ int main() {
                 int plannerChoice;
 
                 do {
-                    cout << "\n===== Study Planner =====\n";
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "      Study Planner Module\n";
+                    cout<<"===============================\n";
+                    setColor(15);
                     cout << "1. Add Task\n";
                     cout << "2. View Task\n";
                     cout << "3. Complete Task\n";
+                    setColor(10);
                     cout << "0. Back\n";
-
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> plannerChoice;
 
@@ -173,13 +226,19 @@ int main() {
             case 4: {
                 int expenseChoice;
 
-                do {
-                    cout << "\n===== Expense Tracker =====\n";
+                do  {
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "     Expense Tracker Module\n";
+                    cout<<"===============================\n";
+                    setColor(15);
                     cout << "1. Add Expense\n";
                     cout << "2. View Expense\n";
                     cout << "3. Search Expense\n";
+                    setColor(10);
                     cout << "0. Back\n";
 
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> expenseChoice;
 
@@ -216,11 +275,16 @@ int main() {
                 int resourceChoice;
 
                 do {
-                    cout << "\n===== Resource Manager =====\n";
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "    Resource Manager Module\n";
+                    cout<<"===============================\n";
+                    setColor(15);
                     cout << "1. Add Resource\n";
                     cout << "2. View Resource\n";
+                    setColor(10);
                     cout << "0. Back\n";
-
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> resourceChoice;
 
@@ -253,11 +317,16 @@ int main() {
                 int progressChoice;
 
                 do {
-                    cout << "\n===== Progress Tracker =====\n";
+                    setColor(11);
+                    cout<<"===============================\n";
+                    cout << "     Progress Tracker Module\n";
+                    cout<<"===============================\n";
+                    setColor(15);
                     cout << "1. Update Progress\n";
                     cout << "2. Show Progress\n";
+                    setColor(10);
                     cout << "0. Back\n";
-
+                    setColor(14);
                     cout << "Enter your choice: ";
                     cin >> progressChoice;
 
@@ -294,22 +363,27 @@ int main() {
                 string id;
                 double cgpa;
                 int courses;
+                setColor(11);
 
                 cout << "\n===== Student Report =====\n";
 
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
+                setColor(14);
                 cout << "Enter Student Name: ";
                 getline(cin, name);
 
+                setColor(14);
                 cout << "Enter Student ID: ";
                 getline(cin, id);
-
+                setColor(14);
                 cout << "Enter CGPA: ";
                 cin >> cgpa;
+                setColor(14);
 
                 cout << "Enter Completed Courses: ";
                 cin >> courses;
+                setColor(15);
 
                 report.setStudentInfo(name, id, cgpa, courses);
 
@@ -321,6 +395,7 @@ int main() {
 
             // ================= EXIT =================
             case 0:
+                setColor(11);
                 cout << "\nExiting EduAssist...\n";
                 break;
 
